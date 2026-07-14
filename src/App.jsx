@@ -1,10 +1,10 @@
-import Post from 'src/components/Post.component.jsx';
+import PostsList from 'src/components/PostsList';
 
 function App() {
   return (
-    <div>
-      <Post />
-    </div>
+    <main>
+      <PostsList />
+    </main>
   );
 }
 
