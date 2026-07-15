@@ -1,13 +1,5 @@
-import PostsList from 'src/components/PostsList';
-import NewPost from 'src/components/NewPost';
+import Main from 'src/pages/Main.page.jsx';
 
-function App() {
-  return (
-    <main>
-      <NewPost />
-      <PostsList />
-    </main>
-  );
-}
+const App = () => <Main />;
 
 export default App;
