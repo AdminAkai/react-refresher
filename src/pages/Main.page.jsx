@@ -23,7 +23,7 @@ const Main = () => {
 
   return (
     <main>
-      <MainHeader />
+      <MainHeader onCreatePost={setShowModal} />
       <Modal toggleModal={toggleModal} showModal={showModal}>
         <NewPost
           onPostBodyChange={onNewPostChange}
