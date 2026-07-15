@@ -31,9 +31,11 @@ const Main = () => {
 
   const onSubmitNewPost = (e) => {
     e.preventDefault();
-    const currentPosts = Array.from(posts)
-    currentPosts.push(newPost)
-    setPosts(currentPosts)
+    setPosts(prevPosts => {
+      const newPosts = Array.from(prevPosts)
+      newPosts.push(newPost)
+      return newPosts
+    })
     setNewPost({ body: '', author: '' })
     setShowModal(false)
   }
