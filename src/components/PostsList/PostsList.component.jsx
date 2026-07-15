@@ -7,18 +7,22 @@ import styles from './PostsList.module.css';
 
 const PostsList = ({ posts }) => {
   const memoizedPosts = useMemo(() => 
-    posts 
+    posts && posts.length !== 0
       ? 
-      posts.map(({ author, body }, i) => <Post author={author} body={body} key={`${i}-author-body`} />)
+        (
+          <ul className={styles.posts}>
+            {posts.map(({ author, body }, i) => <Post author={author} body={body} key={`${i}-author-body`} />)}
+          </ul>
+        )
       :
-      null,
+        (
+          <div className={styles.empty}>
+            <h2>There are no posts yet!</h2>
+          </div>
+        ),
   [posts])
 
-  return (
-    <ul className={styles.posts}>
-      {memoizedPosts}
-    </ul>
-  )
+  return memoizedPosts
 }
 
 export default PostsList;
