@@ -5,8 +5,13 @@ import PostsList from 'src/components/PostsList';
 import NewPost from 'src/components/NewPost';
 import Modal from 'src/components/Modal';
 
+import { postsUrl } from 'src/api';
+import { usePosts } from 'src/hooks';
+
+
 const Main = () => {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = usePosts();
+
   const [showModal, setShowModal] = useState(false);
   const [newPost, setNewPost] = useState({
     body: '',
@@ -30,10 +35,17 @@ const Main = () => {
   }
 
   const onSubmitNewPost = (e) => {
-    e.preventDefault();
+    fetch(postsUrl, {
+      method: 'POST',
+      body: JSON.stringify(newPost),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     setPosts(prevPosts => {
       const newPosts = Array.from(prevPosts)
-      newPosts.push(newPost)
+      newPosts.unshift(newPost)
+      e.preventDefault();
       return newPosts
     })
     setNewPost({ body: '', author: '' })
