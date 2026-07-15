@@ -4,13 +4,14 @@ import MainHeader from 'src/components/MainHeader';
 import PostsList from 'src/components/PostsList';
 import NewPost from 'src/components/NewPost';
 import Modal from 'src/components/Modal';
+import Loading from 'src/components/Loading';
 
 import { postsUrl } from 'src/api';
 import { usePosts } from 'src/hooks';
 
 
 const Main = () => {
-  const [posts, setPosts] = usePosts();
+  const [posts, setPosts, isLoading] = usePosts();
 
   const [showModal, setShowModal] = useState(false);
   const [newPost, setNewPost] = useState({
@@ -64,7 +65,11 @@ const Main = () => {
           onSubmit={onSubmitNewPost}
         />
       </Modal>
-      <PostsList posts={posts} />
+      {isLoading ? 
+          <Loading />
+        :
+          <PostsList posts={posts} />
+      }
     </main>
   );
 };
