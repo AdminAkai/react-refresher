@@ -17,7 +17,8 @@ const PostsList = ({ posts }) => {
       :
         (
           <div className={styles.empty}>
-            <h2>There are no posts yet!</h2>
+            <h2>There are no posts yet.</h2>
+            <p>Start adding some!</p>
           </div>
         ),
   [posts])
