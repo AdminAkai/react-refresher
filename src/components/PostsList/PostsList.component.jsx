@@ -1,11 +1,13 @@
-import { useMemo } from 'react'
+import { useMemo, use } from 'react'
 
 import Post from 'src/components/Post';
 
 import styles from './PostsList.module.css';
 
 
-const PostsList = ({ posts }) => {
+const PostsList = ({ postsPromise }) => {
+  const { posts } = use(postsPromise)
+  
   const memoizedPosts = useMemo(() => 
     posts && posts.length !== 0
       ? 
