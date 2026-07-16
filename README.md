@@ -12,3 +12,4 @@ To be ran in conjunction with react-refresher-backend - the dummy backend for th
 
 ![Screenshot 3](public/react_refresher_ss_3.png)
 
+![Screenshot 4](public/react_refresher_ss_4.png)
