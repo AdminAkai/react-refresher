@@ -1,2 +1,2 @@
 export { apiUrl } from './api.utils';
-export { getPosts, postsUrl } from './posts';
+export { getPosts, postsUrl, getPostDetails } from './posts';

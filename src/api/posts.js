@@ -19,3 +19,9 @@ export const addPosts = async ({ request }) => {
 
   return redirect('/');
 }
+
+export const getPostDetails = async ({ params }) => {
+  const response = await fetch(`${postsUrl}/${params.postId}`);
+  const { post } = await response.json();
+  return post
+}

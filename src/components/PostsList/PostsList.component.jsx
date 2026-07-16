@@ -13,7 +13,7 @@ const PostsList = ({ postsPromise }) => {
       ? 
         (
           <ul className={styles.posts}>
-            {posts.map(({ author, body }, i) => <Post author={author} body={body} key={`${i}-author-body`} />)}
+            {posts.map(({ id, author, body }, i) => <Post author={author} body={body} key={id} id={id} />)}
           </ul>
         )
       :
